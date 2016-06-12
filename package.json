@@ -1,0 +1,23 @@
+{
+  "name": "nrafund",
+  "version": "1.0.0",
+  "description": "Our representatives are being funded by the NRA.",
+  "private": true,
+  "scripts": {
+    "build": "nwb build-react-app",
+    "clean": "nwb clean-app",
+    "start": "nwb serve-react-app",
+    "test": "nwb test",
+    "test:watch": "nwb test --server"
+  },
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  },
+  "devDependencies": {
+    "nwb": "0.11.x"
+  },
+  "author": "Lachlan Campbell <lachlan.campbell@icloud.com>",
+  "license": "MIT",
+  "repository": ""
+}
