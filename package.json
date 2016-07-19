@@ -6,6 +6,7 @@
   "scripts": {
     "build": "nwb build-react-app",
     "clean": "nwb clean-app",
+    "deploy": "npm run build && cp CNAME dist/CNAME && gh-pages -d dist",
     "start": "nwb serve-react-app --port 4000",
     "scrape": "node parse/scraper.js",
     "parse": "node parse/parse.js",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "axios": "^0.13.1",
     "comma-number": "^1.1.0",
+    "gh-pages": "^0.11.0",
     "html-loader": "^0.4.3",
     "lodash": "^4.13.1",
     "moment": "^2.14.1",
