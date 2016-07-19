@@ -8,7 +8,6 @@ import {
   Heading,
   Text,
   Label,
-  Input,
   Button,
   Menu,
   NavItem,
@@ -90,14 +89,15 @@ class Search extends Component {
         />
         <Flex align='flex-end' mb={2}>
           <Box pr={2} auto>
-            <Input
+            <Label htmlFor='addressInput'>
+              Enter your US address
+            </Label>
+            <input
               name='address'
               id='addressInput'
-              label='Enter your US address'
               placeholder='1 Infinite Loop, Cupertino, CA'
               onKeyDown={e => this.onKey(e.target.value, e.keyCode)}
-              mb={0}
-              rounded
+              className='input'
             />
           </Box>
           <Box pt={2}>

@@ -15,13 +15,13 @@ const Header = () => (
   <Base is='header' className='bg-red white'>
     <Base is='article' px={2} py={4} className='mw7 center'>
       <Heading level={1}>NRA Funded</Heading>
-      <Text my={1}>
+      <p className='mt2 mb2'>
         Congress is supposed to represent the people, yet many are being paid by
         the NRA to keep quiet about gun violence.
-      </Text>
-      <Text mb={1}>
+      </p>
+      <p className='mt2 mb2'>
         We must speak out.
-      </Text>
+      </p>
       <div className='flex items-center mt2 mb2'>
         <span className='sm-show pr1'>
           Built by
@@ -31,16 +31,16 @@ const Header = () => (
         <span className='sm-show pr1'>
           Contribute on
         </span>
-      <Base is='footer' style={{ opacity: '.8', fontWeight: 500 }}>
         <Pill href='https://github.com/lachlanjc/nrafund/' children='GitHub' />
       </div>
+      <footer style={{ opacity: '.8', fontWeight: 500 }}>
+        <Text small>
+          Funding data from the Center for Responsive Politics, 2014
+        </Text>
         <Text small>
           Gun violence data from the Gun Violence Archive, 2014
         </Text>
-        <Text small>
-          Funding data from the Center for Responsive Politics, 2014 cycle
-        </Text>
-      </Base>
+      </footer>
     </Base>
   </Base>
 )
