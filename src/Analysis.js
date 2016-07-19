@@ -56,7 +56,7 @@ const Analysis = () => {
         theme='primary'
         mt={0} pb={1} mb={2}
         _className='bb'
-        children='The funding'
+        children='NRA funding'
       />
       <article className='md-flex items-center flex-wrap stats-wide'>
         {/*
@@ -67,27 +67,27 @@ const Analysis = () => {
           />
         */}
         <Stat
-          label='of Congress funded'
+          label='of Congress members received funding'
           value={_.round((_.pull(funding, 0).length * 100) / people.length, 1)}
           unit='%'
         />
         <Stat
-          label='Candidate contributions'
+          label='Candidate/PAC/party contributions'
           unit='USD'
           value='808,462'
         />
         <Stat
-          label='Total lobbying'
+          label='Total lobbying for federal election'
           unit='USD'
           value='3,360,000'
         />
         <Stat
-          label='Outside spending'
+          label='All federal election spending'
           unit='USD'
           value='27,024,618'
         />
         <Stat
-          label='Overall Republicans'
+          label='Congress Republicans percentage'
           unit='%'
           value={_.round((republicans.length * 100) / people.length, 1)}
         />
@@ -97,7 +97,7 @@ const Analysis = () => {
           value={_.round((fundedRepublicans.length * 100) / fundedPeople.length, 1)}
         />
         <Stat
-          label='Overall men'
+          label='Congress male percentage'
           unit='%'
           value={_.round((males.length * 100) / people.length, 1)}
         />
@@ -128,7 +128,7 @@ const Analysis = () => {
           value={violence.injuries}
         />
         <Stat
-          label='Kids killed/injured'
+          label='Children killed/injured'
           value={violence.kids}
         />
         <Stat
@@ -136,7 +136,7 @@ const Analysis = () => {
           value={violence.teens}
         />
         <Stat
-          label='Mass shootings'
+          label='Mass shootings (4+ people)'
           value={violence.masses}
         />
       </article>
