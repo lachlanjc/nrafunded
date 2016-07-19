@@ -1,3 +1,5 @@
+@import '../../public/css/basscss-padding.css';
+@import '../../public/css/basscss-margin.css';
 
 .mw7     { max-width: 48rem; }
 .center  { margin-right: auto; margin-left: auto; }
@@ -14,16 +16,6 @@
 .white { color: #fff; }
 
 .bb { border-bottom: 1px solid rgba(0,0,0,.25); }
-
-.pl1 { padding-left: 8px; }
-.pl2 { padding-left: 16px; }
-.pr1 { padding-right: 8px; }
-.pr2 { padding-right: 16px; }
-
-.mt1 { margin-top: 8px; }
-.mt2 { margin-top: 16px; }
-.mr1 { margin-right: 8px; }
-.ml1 { margin-left: 8px; }
 
 .flex { display: flex; }
 .items-center { align-items: center; }
