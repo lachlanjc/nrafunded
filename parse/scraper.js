@@ -5,6 +5,7 @@ const axios = require('axios')
 const scrapeIt = require('scrape-it')
 const unFormatUSD = require('unformat-usd')
 
+// PEOPLE
 axios.get('https://www.govtrack.us/api/v2/role?current=true&limit=542')
   .then(data => {
     fs.writeFile('./data/people.json', JSON.stringify(data.data.objects), err => {
@@ -16,6 +17,9 @@ axios.get('https://www.govtrack.us/api/v2/role?current=true&limit=542')
     })
   })
 
+// CONTRIBUTIONS
+// Static numbers for contributions/lobbying/all spending:
+// https://www.opensecrets.org/orgs/summary.php?id=d000000082&cycle=2014
 const pages = [
   'https://www.opensecrets.org/pacs/pacgot.php?cycle=2014&cmte=C00053553&page=1',
   'https://www.opensecrets.org/pacs/pacgot.php?cycle=2014&cmte=C00053553&page=2',
@@ -67,6 +71,7 @@ _.map(pages, url => {
   })
 })
 
+// GUN VIOLENCE
 scrapeIt('http://www.gunviolencearchive.org/tolls/2014', {
   incidents: '.toll li:first-child  span:last-child',
   deaths:    '.toll li:nth-child(2) span:last-child',
