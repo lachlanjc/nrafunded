@@ -1,16 +1,30 @@
 
-import React, { Component } from 'react'
+import React from 'react'
+import { Container } from 'rebass'
 
-export default class App extends Component {
-  render() {
-    return (
-      <main>
-        <h1>NRA Funded</h1>
-        <p>
-          Many of our representatives are being funded by the NRA, don't support
-          background checks, and aren't taking action against gun violence.
-        </p>
-      </main>
-    )
-  }
-}
+import Header from './Header'
+import Search from './Search'
+import Nav from './Nav'
+import Footer from './Footer'
+
+import styles from './css/app.css'
+import tooltips from './css/tooltips.css'
+import utilities from './css/utilities.css'
+
+import analysis from '../public/analysis.html'
+import rendered from '../public/rendered.html'
+
+const App = () => (
+  <main>
+    <Header />
+    <Container is='article' px={2} style={{ maxWidth: '48rem' }}>
+      <Search />
+      <Nav />
+      <div dangerouslySetInnerHTML={{ __html: analysis }} />
+      <div dangerouslySetInnerHTML={{ __html: rendered }} />
+    </Container>
+    <Footer />
+  </main>
+)
+
+export default App

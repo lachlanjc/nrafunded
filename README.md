@@ -1,4 +1,20 @@
-# nrafund
+# NRA Funded
 
-Many of our representatives are being funded by the NRA, don't support
-background checks, and aren't taking action against gun violence.
+Exposing members of Congress who are funded by the NRA.
+
+Coming soon.
+
+## Setup
+
+1. Clone, `npm i`
+2. `npm start`
+
+## Scraping data
+
+Already done. For future reference, the command is `npm run data`.
+
+## Building for production
+
+```
+npm run build
+```
