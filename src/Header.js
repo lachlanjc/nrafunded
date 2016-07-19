@@ -4,20 +4,11 @@ import {
   Base,
   Heading,
   Text,
-  Button,
-  Space,
 } from 'rebass'
 import { Flex } from 'reflexbox'
 
-const SmallPill = ({ ...props }) => (
-  <Button
-    backgroundColor='white' color='red' pill
-    style={{
-      minHeight: 8,
-      padding: '4px 8px',
-    }}
-    {...props}
-  />
+const Pill = ({ className, ...props }) => (
+  <a className={`pill ${className || ''}`} {...props} />
 )
 
 const Header = () => (
@@ -31,20 +22,18 @@ const Header = () => (
       <Text mb={1}>
         We must speak out.
       </Text>
-      <Flex align='center' my={2} wrap>
-        <span className='sm-show'>
+      <div className='flex items-center mt2 mb2'>
+        <span className='sm-show pr1'>
           Built by
-          <Space x={1} />
         </span>
-        <SmallPill href='https://lachlanjc.me/' children='@lachlanjc' />
-        <Space x={1} /> – <Space x={1} />
-        <span className='sm-show'>
+        <Pill href='https://lachlanjc.me/' children='@lachlanjc' />
+        <span className='pl1 pr1'> – </span>
+        <span className='sm-show pr1'>
           Contribute on
-          <Space x={1} />
         </span>
-        <SmallPill href='https://github.com/lachlanjc/nrafund/' children='GitHub' />
-      </Flex>
       <Base is='footer' style={{ opacity: '.8', fontWeight: 500 }}>
+        <Pill href='https://github.com/lachlanjc/nrafund/' children='GitHub' />
+      </div>
         <Text small>
           Gun violence data from the Gun Violence Archive, 2014
         </Text>

@@ -25,6 +25,19 @@
 
 /* This CSS isn't great, but inlining it everywhere is worse */
 
+.pill {
+  background-color: #fff;
+  border-radius: 99999px;
+  border: 0px;
+  color: #f52;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
 .stat {
   display: inline-block;
   line-height: 1;
