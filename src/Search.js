@@ -10,9 +10,9 @@ import {
   Label,
   Button,
   Menu,
-  NavItem,
+  NavItem
 } from 'rebass'
-import { Flex, Box } from 'reflexbox'
+import { Flex } from 'reflexbox'
 import { VelocityTransitionGroup } from 'velocity-react'
 
 class Search extends Component {
@@ -23,7 +23,7 @@ class Search extends Component {
       loading: false,
       results: [],
       lat: 0,
-      lng: 0,
+      lng: 0
     }
     this.onKey = this.onKey.bind(this)
     this.onClick = this.onClick.bind(this)
@@ -47,7 +47,7 @@ class Search extends Component {
     axios.get(`//maps.googleapis.com/maps/api/geocode/json?&address=${this.state.address}`)
       .then(r => {
         if (!_.isEmpty(r.data.results[0])) {
-          const { lat, lng } =  r.data.results[0].geometry.location
+          const { lat, lng } = r.data.results[0].geometry.location
           this.setState({ lat, lng })
           this.getLegislators()
         }
@@ -57,12 +57,12 @@ class Search extends Component {
   getLegislators () {
     const { lat, lng } = this.state
     axios.get(`/legislators/findByLatLng?latitude=${lat}&longitude=${lng}`, {
-      baseURL: 'https://crossorigin.me/https://democracy.io/api/1',
+      baseURL: 'https://crossorigin.me/https://democracy.io/api/1'
     })
       .then(r => {
         this.setState({
           loading: false,
-          results: r.data.data,
+          results: r.data.data
         })
       })
       .catch(r => {
@@ -88,10 +88,12 @@ class Search extends Component {
           children='Find your representative…'
         />
         <Flex align='flex-end' mb={2}>
-          <Box pr={2} auto>
-            <Label htmlFor='addressInput'>
-              Enter your US address
-            </Label>
+          <div className='pr2' style={{ flex: 1 }}>
+            <Label
+              htmlFor='addressInput'
+              style={{ lineHeight: 2 }}
+              children='Enter your US address'
+            />
             <input
               name='address'
               id='addressInput'
@@ -99,15 +101,15 @@ class Search extends Component {
               onKeyDown={e => this.onKey(e.target.value, e.keyCode)}
               className='input'
             />
-          </Box>
-          <Box pt={2}>
+          </div>
+          <div className='pt2'>
             <Button
               backgroundColor='green' color='white'
               inverted rounded
               children='Search'
               onClick={e => this.onClick(e)}
             />
-          </Box>
+          </div>
         </Flex>
         {(loading || results) &&
           <SearchResults

@@ -12,9 +12,9 @@ const RepSocial = ({
 }) => (
   <div className='flex flex-wrap items-center mt2' {...props}>
     {twitterid && <RepSocialTwitter twitterid={twitterid} />}
-    {contact   && <RepSocialContact contact={contact} />}
-    {phone     && <RepSocialPhone   phone={phone} />}
-    {website   && <RepSocialWebsite website={website} />}
+    {contact && <RepSocialContact contact={contact} />}
+    {phone && <RepSocialPhone phone={phone} />}
+    {website && <RepSocialWebsite website={website} />}
   </div>
 )
 

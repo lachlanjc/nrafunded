@@ -1,6 +1,5 @@
 
 import React from 'react'
-import _ from 'lodash'
 import moment from 'moment'
 import commaNumber from 'comma-number'
 
@@ -24,7 +23,7 @@ const Representative = ({ data, ...props }) => (
       website={data.website}
       contact={data.extra ? data.extra.contact_form : null}
     />
-</div>
+  </div>
 )
 
 const RepBadge = ({ party, ...props }) => {

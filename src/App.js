@@ -7,9 +7,11 @@ import Search from './Search'
 import Nav from './Nav'
 import Footer from './Footer'
 
+/* eslint-disable no-unused-vars */
 import styles from './css/app.css'
 import tooltips from './css/tooltips.css'
 import utilities from './css/utilities.css'
+/* eslint-enable no-unused-vars */
 
 import analysis from '../public/analysis.html'
 import rendered from '../public/rendered.html'

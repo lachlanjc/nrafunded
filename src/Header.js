@@ -3,9 +3,8 @@ import React from 'react'
 import {
   Base,
   Heading,
-  Text,
+  Text
 } from 'rebass'
-import { Flex } from 'reflexbox'
 
 const Pill = ({ className, ...props }) => (
   <a className={`pill ${className || ''}`} {...props} />

@@ -16,12 +16,12 @@ const data = _.forEach(states, state => {
   state.people = _.forEach(peeps, p => {
     // remove accents — otherwise rendering screws with them
     p.person.firstname = _.deburr(p.person.firstname)
-    p.person.lastname  = _.deburr(p.person.lastname)
+    p.person.lastname = _.deburr(p.person.lastname)
     // add funding
     p.funding = 0
     const fund = _.filter(stateFunded, {
       firstname: p.person.firstname,
-      lastname: p.person.lastname,
+      lastname: p.person.lastname
     })
     if (fund[0]) {
       p.funding = fund[0].funding

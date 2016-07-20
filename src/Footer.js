@@ -8,7 +8,7 @@ const FooterLink = ({ unpadLeft, unpadRight, ...props }) => (
     style={{
       textDecoration: 'none',
       paddingLeft: unpadLeft ? null : 4,
-      paddingRight: unpadRight ? null : 4,
+      paddingRight: unpadRight ? null : 4
     }}
     {...props}
   />
@@ -22,7 +22,7 @@ const Footer = () => (
       borderTop: '1px solid #dae4eb',
       backgroundColor: '#f4f7f9',
       color: '#566b7b',
-      textAlign: 'center',
+      textAlign: 'center'
     }}>
     <section>
       Created by

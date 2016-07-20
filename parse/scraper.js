@@ -27,7 +27,7 @@ const pages = [
 ]
 let data = []
 
-function scrapeUrl(url, saveFile) {
+function scrapeUrl (url, saveFile) {
   scrapeIt(url, {
     house: {
       listItem: '#tab0 tbody tr',
@@ -74,17 +74,17 @@ _.map(pages, url => {
 // GUN VIOLENCE
 scrapeIt('http://www.gunviolencearchive.org/tolls/2014', {
   incidents: '.toll li:first-child  span:last-child',
-  deaths:    '.toll li:nth-child(2) span:last-child',
-  injuries:  '.toll li:nth-child(3) span:last-child',
-  kids:      '.toll li:nth-child(4) span:last-child',
-  teens:     '.toll li:nth-child(5) span:last-child',
-  masses:    '.toll li:nth-child(6) span:last-child',
+  deaths: '.toll li:nth-child(2) span:last-child',
+  injuries: '.toll li:nth-child(3) span:last-child',
+  kids: '.toll li:nth-child(4) span:last-child',
+  teens: '.toll li:nth-child(5) span:last-child',
+  masses: '.toll li:nth-child(6) span:last-child'
 }).then(data => {
   fs.writeFile('./data/violence.json', JSON.stringify(data), err => {
     if (err) {
       console.log(err)
     } else {
-      console.log(`✅  Saved violence`)
+      console.log('✅  Saved violence')
     }
   })
 })

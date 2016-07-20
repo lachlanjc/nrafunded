@@ -3,9 +3,8 @@ import React from 'react'
 import _ from 'lodash'
 import {
   Base,
-  Heading,
+  Heading
 } from 'rebass'
-import commaNumber from 'comma-number'
 import states from '../data/data.json'
 import violence from '../data/violence.json'
 
@@ -41,7 +40,6 @@ const Analysis = () => {
   let fundedPeople = _.filter(people, p => {
     return p.funding > 0
   })
-  let democrats = _.filter(people, ['party', 'Democrat'])
   let republicans = _.filter(people, ['party', 'Republican'])
   let fundedRepublicans = _.filter(fundedPeople, ['party', 'Republican'])
   // let fundedDemocrats = _.filter(people, p => {
