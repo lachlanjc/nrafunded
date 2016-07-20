@@ -56,7 +56,7 @@ const Analysis = () => {
         theme='primary'
         mt={0} pb={1} mb={2}
         _className='bb'
-        children='NRA funding'
+        children='NRA funding (2014)'
       />
       <article className='md-flex items-center flex-wrap stats-wide'>
         {/*
@@ -67,7 +67,7 @@ const Analysis = () => {
           />
         */}
         <Stat
-          label='of Congress members received funding'
+          label='of Congress received NRA funding'
           value={_.round((_.pull(funding, 0).length * 100) / people.length, 1)}
           unit='%'
         />
@@ -77,17 +77,17 @@ const Analysis = () => {
           value='808,462'
         />
         <Stat
-          label='Total lobbying for federal election'
+          label='Total NRA budget for federal lobbying'
           unit='USD'
           value='3,360,000'
         />
         <Stat
-          label='All federal election spending'
+          label='Total NRA federal election spending'
           unit='USD'
           value='27,024,618'
         />
         <Stat
-          label='Congress Republicans percentage'
+          label='Republican percentage of the US Congress'
           unit='%'
           value={_.round((republicans.length * 100) / people.length, 1)}
         />
@@ -97,7 +97,7 @@ const Analysis = () => {
           value={_.round((fundedRepublicans.length * 100) / fundedPeople.length, 1)}
         />
         <Stat
-          label='Congress male percentage'
+          label='Male percentage of the US Congress'
           unit='%'
           value={_.round((males.length * 100) / people.length, 1)}
         />
