@@ -16,11 +16,10 @@ const Header = () => (
     <Base is='article' px={2} py={4} className='mw7 center'>
       <Heading level={1}>NRA Funded</Heading>
       <p className='mt2 mb2'>
-        Congress is supposed to represent the people, yet many are being paid by
-        the NRA to keep quiet about gun violence.
+        Many of our US Congress members receive funding from the NRA and are keeping quiet about the gun violence in this country.
       </p>
       <p className='mt2 mb2'>
-        We must speak out.
+        Find out who represents you in Congress and if they're being funded. We must speak out.
       </p>
       <div className='flex items-center mt2 mb2'>
         <span className='sm-show pr1'>
