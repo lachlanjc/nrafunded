@@ -32,7 +32,7 @@ const Footer = () => (
       />
       in 2016 –
       <FooterLink
-        href='https://github.com/lachlanjc/nrafund/'
+        href='https://github.com/lachlanjc/nrafunded/'
         children='Contribute on GitHub'
         unpadRight
       />

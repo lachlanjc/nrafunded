@@ -30,7 +30,7 @@ const Header = () => (
         <span className='sm-show pr1'>
           Contribute on
         </span>
-        <Pill href='https://github.com/lachlanjc/nrafund/' children='GitHub' />
+        <Pill href='https://github.com/lachlanjc/nrafunded/' children='GitHub' />
       </div>
       <footer style={{ opacity: '.8', fontWeight: 500 }}>
         <Text small>
