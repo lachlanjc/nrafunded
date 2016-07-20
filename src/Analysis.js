@@ -42,9 +42,6 @@ const Analysis = () => {
   })
   let republicans = _.filter(people, ['party', 'Republican'])
   let fundedRepublicans = _.filter(fundedPeople, ['party', 'Republican'])
-  // let fundedDemocrats = _.filter(people, p => {
-  //   return p.funding !== 0 && p.party === 'Republican'
-  // })
   let males = _.filter(people, ['person.gender', 'male'])
   let fundedMales = _.filter(fundedPeople, ['person.gender', 'male'])
   return (
@@ -57,13 +54,6 @@ const Analysis = () => {
         children='NRA funding (2014)'
       />
       <article className='md-flex items-center flex-wrap stats-wide'>
-        {/*
-          <Stat
-            label='Funded'
-            unit='people'
-            value={_.pull(funding, 0).length}
-          />
-        */}
         <Stat
           label='of Congress received NRA funding'
           value={_.round((_.pull(funding, 0).length * 100) / people.length, 1)}
