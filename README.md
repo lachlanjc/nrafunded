@@ -23,7 +23,7 @@ Command | Description
 
 ## Contributing
 
-This site was built fairly quickly, and there are many things that could be improved (design, documentation, tooling, performance, etc), so please contribute! Fork this repo, create a branch, push your work to GitHub, and [submit a pull request](https://github.com/lachlanjc/nrafunded/compare).
+This site was built fairly quickly, and there are many things that could be improved (design, documentation, testing, tooling, performance, etc), so please contribute! Fork this repo, create a branch, push your work to GitHub, and [submit a pull request](https://github.com/lachlanjc/nrafunded/compare). Know that this repo follows [JavaScript Standard Style](http://standardjs.com).
 
 ## License
 
