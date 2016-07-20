@@ -7,6 +7,7 @@
 .ttu     { text-transform: uppercase; }
 .tracked { letter-spacing: .16em; }
 .tc      { text-align: center; }
+.lh0     { line-height: 0; }
 
 .bg-white { background-color: #fff; }
 .bg-stain { background-color: #fee; }

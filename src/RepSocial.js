@@ -10,7 +10,7 @@ const RepSocial = ({
   address,
   ...props
 }) => (
-  <div className='flex flex-wrap items-center mt2' {...props}>
+  <div className='flex flex-wrap items-center mt2 lh0' {...props}>
     {twitterid && <RepSocialTwitter twitterid={twitterid} />}
     {contact && <RepSocialContact contact={contact} />}
     {phone && <RepSocialPhone phone={phone} />}
