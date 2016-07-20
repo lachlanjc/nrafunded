@@ -1,5 +1,5 @@
-@import '../../public/css/basscss-padding.css';
-@import '../../public/css/basscss-margin.css';
+@import './basscss-padding.css';
+@import './basscss-margin.css';
 
 .mw7     { max-width: 48rem; }
 .center  { margin-right: auto; margin-left: auto; }
