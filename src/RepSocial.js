@@ -1,26 +1,23 @@
 
 import React from 'react'
-import { Base } from 'rebass'
 
 const RepSocial = ({
   twitterid,
-  phone,
   website,
   contact,
-  address,
+  phone,
   ...props
 }) => (
   <div className='flex flex-wrap items-center mt2 lh0' {...props}>
+    {phone && <RepSocialPhone phone={phone} />}
     {twitterid && <RepSocialTwitter twitterid={twitterid} />}
     {contact && <RepSocialContact contact={contact} />}
-    {phone && <RepSocialPhone phone={phone} />}
     {website && <RepSocialWebsite website={website} />}
   </div>
 )
 
 const RepSocialItem = ({ link, title, icon, ...props }) => (
-  <Base
-    is='a'
+  <a
     href={link}
     target='_blank'
     aria-label={title}
@@ -29,7 +26,7 @@ const RepSocialItem = ({ link, title, icon, ...props }) => (
     <svg width={24} height={24}>
       <use xlinkHref={`#${icon}`} />
     </svg>
-  </Base>
+  </a>
 )
 
 const RepSocialTwitter = ({ twitterid }) => (
@@ -77,13 +74,11 @@ const RepSocialWebsite = ({ website }) => (
 )
 
 const RepSocialPhone = ({ phone }) => (
-  <div
-    aria-label={`Phone number: ${phone}`}
-    className='tooltipped pr2'>
-    <svg width={24} height={24}>
-      <use xlinkHref='#chat' />
-    </svg>
-  </div>
+  <RepSocialItem
+    link={`tel:${phone}`}
+    title={`Phone number: ${phone}`}
+    icon='phone'
+  />
 )
 
 export default RepSocial
