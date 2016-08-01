@@ -48,7 +48,7 @@ const RepDates = ({ startdate, enddate, ...props }) => (
 const RepFunding = ({ funding, ...props }) => (
   <div className='flex items-center mt1 red'>
     <svg width={16} height={16}>
-      <use xlinkHref='#skull' />
+      <use xlinkHref='#medal' />
     </svg>
     <span className='pl1'>
       Funding: {' '}
