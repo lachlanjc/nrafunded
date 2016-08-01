@@ -10,11 +10,14 @@
   display: none;
   position: absolute;
   bottom: 100%;
+}
+.social-link.tooltipped:before,
+.social-link.tooltipped:after {
   left: 12px;
 }
-.dates.tooltipped:before,
-.dates.tooltipped:after {
-  left: 8px;
+.meta.tooltipped:before,
+.meta.tooltipped:after {
+  left: 8px
 }
 
 .tooltipped:after {
