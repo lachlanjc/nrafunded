@@ -7,7 +7,7 @@ import RepSocial from './RepSocial'
 
 const Representative = ({ data, ...props }) => (
   <div
-    className={`Card ${data.funding ? 'bg-stain' : 'bg-white'}`}
+    className={`card ${data.funding ? 'bg-stain' : 'bg-white'}`}
     id={`${data.state}-${data.person.lastname}`}
     >
     <h3 className='name'>
@@ -15,13 +15,15 @@ const Representative = ({ data, ...props }) => (
       <RepBadge party={data.party} />
     </h3>
     <p className='role' children={data.role_type_label} />
-    <RepDates startdate={data.startdate} enddate={data.enddate} />
-    {data.funding ? <RepFunding funding={data.funding} /> : null}
+    <div className='md-flex meta-container'>
+      <RepDates startdate={data.startdate} enddate={data.enddate} />
+      {data.funding ? <RepFunding funding={data.funding} /> : null}
+    </div>
     <RepSocial
-      twitterid={data.person.twitterid}
       phone={data.phone}
-      website={data.website}
+      twitterid={data.person.twitterid}
       contact={data.extra ? data.extra.contact_form : null}
+      website={data.website}
     />
   </div>
 )
@@ -35,7 +37,7 @@ const RepBadge = ({ party, ...props }) => {
 }
 
 const RepDates = ({ startdate, enddate, ...props }) => (
-  <div aria-label='Term dates' className='flex items-center tooltipped dates'>
+  <div aria-label='Term dates' className='flex items-center tooltipped meta'>
     <svg width={16} height={16}>
       <use xlinkHref='#clock' />
     </svg>
@@ -46,7 +48,7 @@ const RepDates = ({ startdate, enddate, ...props }) => (
 )
 
 const RepFunding = ({ funding, ...props }) => (
-  <div className='flex items-center mt1 red'>
+  <div className='flex items-center red'>
     <svg width={16} height={16}>
       <use xlinkHref='#medal' />
     </svg>

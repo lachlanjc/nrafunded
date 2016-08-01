@@ -1,12 +1,16 @@
 
-.people .Card, .stat { width: 100%; }
+.people .card, .stat { width: 100%; }
 
-@media (min-width: 52em) {
+@media (min-width: 48rem) {
   .md-flex { display: flex; }
-  .people .Card {
+  .people .card {
     width: 360px;
     max-width: 360px;
-    flex: 1 1 auto;
+  }
+  .meta-container {
+    flex-direction: column;
+    height: 3rem;
+    justify-content: center;
   }
   .stats-wide .stat {
     width: 50%;
@@ -47,27 +51,35 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 16px;
-  padding: 4px 12px;
+  padding: 6px 12px;
   text-decoration: none;
 }
 
 .stat {
   display: inline-block;
-  line-height: 1;
   margin-bottom: 16px;
 }
-.stat-value {
+.stat__value {
   font-size: 48px;
   font-weight: 300;
+  line-height: 1;
   margin-bottom: 4px;
 }
-.stat-unit {
-  font-size: 20px;
-  font-weight: 400;
+.stat__value:before, .stat__value:after {
+  font-size: 28px;
 }
-.stat-unit.percent { margin-left: 2px; }
-.stat-unit.text    { margin-left: 4px; }
-.stat-label {
+.stat--percentage:after {
+  content: '%';
+}
+.stat--dollars:before {
+  content: '$';
+}
+.stat--graph .Progress {
+  margin-top: 16px;
+  max-width: 16rem;
+}
+.stat__label {
+  display: block;
   font-size: 12px;
   font-weight: 600;
 }
@@ -86,16 +98,15 @@
 
 .people {
   flex-wrap: wrap;
-  align-items: flex-start;
   justify-content: space-between;
 }
 
-.Card {
-  padding: 16px;
-  margin-bottom: 8px;
-  border: 1px solid rgba(0,0,0,.25);
-  margin-top: 8px;
+.card {
   border-radius: 2px;
+  border: 1px solid rgba(0,0,0,.25);
+  margin-bottom: 8px;
+  margin-top: 8px;
+  padding: 16px;
 }
 
 .name {
@@ -135,6 +146,7 @@
   padding: 2px;
   position: relative;
 }
+
 
 .social-link {
   color: inherit;
