@@ -85,7 +85,7 @@ class Search extends Component {
           theme='primary'
           mt={0} pb={1} mb={2}
           _className='bb'
-          children='Find your representative…'
+          children='Find your legislators…'
         />
         <Flex align='flex-end' mb={2}>
           <div className='pr2' style={{ flex: 1 }}>
