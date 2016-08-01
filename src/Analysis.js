@@ -3,7 +3,8 @@ import React from 'react'
 import _ from 'lodash'
 import {
   Base,
-  Heading
+  Heading,
+  Progress
 } from 'rebass'
 import states from '../data/data.json'
 import violence from '../data/violence.json'
@@ -13,20 +14,22 @@ const Stat = ({
   label,
   unit,
   ...props
-}) => (
-  <div className='stat' {...props}>
-    <div className='stat-value'>
-      {value}
-      {unit &&
-        <span
-          className={`stat-unit ${unit === '%' ? 'percent' : 'text'}`}
-          children={unit}
-        />
-      }
+}) => {
+  let type
+  if (unit) {
+    if (unit === '%') type = 'stat--percentage'
+    if (unit === '$') type = 'stat--dollars'
+  }
+  if (!_.isString(value) && !_.isNumber(value)) type = 'stat--graph'
+  return (
+    <div className='stat' {...props}>
+      <span className={`stat__value ${type}`}>
+        {value}
+      </span>
+      {label && <span className='stat__label' children={label} />}
     </div>
-    {label && <span className='stat-label' children={label} />}
-  </div>
-)
+  )
+}
 
 const Analysis = () => {
   let people = []
@@ -37,13 +40,24 @@ const Analysis = () => {
       funding.push(p.funding)
     })
   })
-  let fundedPeople = _.filter(people, p => {
-    return p.funding > 0
+  const fundedPeople = _.filter(people, p => { return p.funding > 0 })
+  const republicans = _.filter(people, ['party', 'Republican'])
+  const republicansFunded = _.filter(fundedPeople, ['party', 'Republican'])
+  const males = _.filter(people, ['person.gender', 'male'])
+  const malesFunded = _.filter(fundedPeople, ['person.gender', 'male'])
+  const values = {
+    republicans: (republicans.length * 100) / people.length,
+    republicansFunded: (republicansFunded.length * 100) / fundedPeople.length,
+    males: (males.length * 100) / people.length,
+    malesFunded: (malesFunded.length * 100) / fundedPeople.length
+  }
+  let stats = {}
+  _.forEach(values, (value, key) => {
+    stats[key] = `${_.round(value, 1)}%`
   })
-  let republicans = _.filter(people, ['party', 'Republican'])
-  let fundedRepublicans = _.filter(fundedPeople, ['party', 'Republican'])
-  let males = _.filter(people, ['person.gender', 'male'])
-  let fundedMales = _.filter(fundedPeople, ['person.gender', 'male'])
+  _.forEach(values, (value, key) => {
+    values[key] = value / 100
+  })
   return (
     <Base my={3}>
       <Heading
@@ -61,38 +75,60 @@ const Analysis = () => {
         />
         <Stat
           label='Candidate/PAC/party contributions'
-          unit='USD'
+          unit='$'
           value='808,462'
         />
         <Stat
           label='Total NRA budget for federal lobbying'
-          unit='USD'
+          unit='$'
           value='3,360,000'
         />
         <Stat
           label='Total NRA federal election spending'
-          unit='USD'
+          unit='$'
           value='27,024,618'
         />
         <Stat
-          label='Republican percentage of the US Congress'
-          unit='%'
-          value={_.round((republicans.length * 100) / people.length, 1)}
+          label={`${stats.republicans} of US Congress members are Republicans`}
+          value={
+            <Progress
+              color='primary'
+              className='stat__graph'
+              value={values.republicans}
+            />
+          }
         />
         <Stat
-          label='of those funded are Republicans'
-          unit='%'
-          value={_.round((fundedRepublicans.length * 100) / fundedPeople.length, 1)}
+          label={`${stats.republicansFunded} of those funded are Republicans`}
+          value={
+            <Progress
+              color='error'
+              className='stat__graph'
+              value={values.republicansFunded}
+            />
+          }
         />
         <Stat
-          label='Male percentage of the US Congress'
+          label={`${stats.males} of US Congress members are men`}
           unit='%'
-          value={_.round((males.length * 100) / people.length, 1)}
+          value={
+            <Progress
+              color='primary'
+              className='stat__graph'
+              value={values.males}
+            />
+          }
         />
         <Stat
-          label='of those funded are men'
+          label={`${stats.malesFunded} of those funded are men`}
           unit='%'
-          value={_.round((fundedMales.length * 100) / fundedPeople.length, 1)}
+          value={
+            <Progress
+              color='error'
+              className='stat__graph'
+              value={values.malesFunded}
+            />
+          }
         />
       </article>
       <Heading
