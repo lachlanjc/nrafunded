@@ -21,8 +21,8 @@ const RepSocialItem = ({ link, title, icon, ...props }) => (
     href={link}
     target='_blank'
     aria-label={title}
-    className='tooltipped social-link'
-    pr={2}>
+    className='tooltipped social-link pr3'
+    >
     <svg width={24} height={24}>
       <use xlinkHref={`#${icon}`} />
     </svg>
