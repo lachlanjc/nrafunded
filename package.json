@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.3.0"
   },
   "devDependencies": {
     "axios": "^0.13.1",
