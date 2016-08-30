@@ -16,7 +16,7 @@
     "analysis": "static-react --no-doctype src/Analysis.js > public/analysis.html"
   },
   "dependencies": {
-    "react": "^15.2.1",
+    "react": "^15.3.0",
     "react-dom": "^15.2.1"
   },
   "devDependencies": {
