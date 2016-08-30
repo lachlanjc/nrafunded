@@ -32,7 +32,7 @@
     "postcss-cli": "^2.6.0",
     "postcss-custom-properties": "^5.0.1",
     "react-geomicons": "^2.0.5",
-    "rebass": "^0.3.0",
+    "rebass": "^0.3.1",
     "reflexbox": "^2.0.0",
     "scrape-it": "^3.1.1",
     "static-react": "^3.2.0",
