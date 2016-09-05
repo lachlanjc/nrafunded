@@ -9,27 +9,7 @@ import {
 import states from '../data/data.json'
 import violence from '../data/violence.json'
 
-const Stat = ({
-  value,
-  label,
-  unit,
-  ...props
-}) => {
-  let type
-  if (unit) {
-    if (unit === '%') type = 'stat--percentage'
-    if (unit === '$') type = 'stat--dollars'
-  }
-  if (!_.isString(value) && !_.isNumber(value)) type = 'stat--graph'
-  return (
-    <div className='stat' {...props}>
-      <span className={`stat__value ${type}`}>
-        {value}
-      </span>
-      {label && <span className='stat__label' children={label} />}
-    </div>
-  )
-}
+import Stat from './Stat'
 import ElectionLinks from './ElectionLinks'
 
 const Analysis = () => {
