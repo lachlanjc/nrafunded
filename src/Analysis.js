@@ -1,4 +1,3 @@
-
 import React from 'react'
 import _ from 'lodash'
 import {
@@ -6,6 +5,7 @@ import {
   Heading,
   Progress
 } from 'rebass'
+
 import states from '../data/data.json'
 import violence from '../data/violence.json'
 
@@ -30,6 +30,7 @@ const Stat = ({
     </div>
   )
 }
+import ElectionLinks from './ElectionLinks'
 
 const Analysis = () => {
   let people = []
@@ -164,6 +165,7 @@ const Analysis = () => {
           value={violence.masses}
         />
       </article>
+      <ElectionLinks />
     </Base>
   )
 }
