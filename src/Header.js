@@ -5,19 +5,8 @@ import {
   Text
 } from 'rebass'
 
-const TwitterLink = () => {
-  const text = 'Find out if your Congress members are receiving funding from the NRA —'
-  const url = 'https://nrafunded.us/'
-  const tweetUrl = `https://twitter.com/share?text=${text}&url=${url}`
-  return (
-    <Pill
-      href={tweetUrl}
-      style={{ color: '#1da1f2' }}
-      children='Tweet this'
-    />
-  )
-}
 import Pill from './Pill'
+import TwitterLink from './TwitterLink'
 
 const Header = () => (
   <Base is='header' className='bg-red white'>
@@ -35,7 +24,9 @@ const Header = () => (
         </span>
         <Pill href='https://lachlanjc.me/' children='@lachlanjc' />
         <span className='pl1 pr1'> – </span>
-        <TwitterLink />
+        <TwitterLink
+          text='Find out if your Congress members are receiving funding from the NRA —'
+        />
       </div>
       <footer style={{ opacity: '.8', fontWeight: 500 }}>
         <Text small>
