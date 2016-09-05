@@ -24,6 +24,7 @@
 .flex-auto { flex: 1 1 auto; }
 
 .sm-show { display: none; }
+.md-show { display: none; }
 
 @media (min-width: 40em) {
   .sm-show { display: block; }
