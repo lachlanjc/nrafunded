@@ -1,18 +1,9 @@
-
 import React from 'react'
 import {
   Base,
   Heading,
   Text
 } from 'rebass'
-
-const Pill = ({ className, ...props }) => (
-  <a className={`pill ${className || ''}`} {...props} />
-)
-
-const LachlanLink = () => (
-  <Pill href='https://lachlanjc.me/' children='@lachlanjc' />
-)
 
 const TwitterLink = () => {
   const text = 'Find out if your Congress members are receiving funding from the NRA —'
@@ -26,6 +17,7 @@ const TwitterLink = () => {
     />
   )
 }
+import Pill from './Pill'
 
 const Header = () => (
   <Base is='header' className='bg-red white'>
@@ -41,7 +33,7 @@ const Header = () => (
         <span className='sm-show pr1'>
           Built by
         </span>
-        <LachlanLink />
+        <Pill href='https://lachlanjc.me/' children='@lachlanjc' />
         <span className='pl1 pr1'> – </span>
         <TwitterLink />
       </div>
