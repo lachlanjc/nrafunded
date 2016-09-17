@@ -31,7 +31,7 @@
     "nwb": "0.12.x",
     "postcss-cli": "^2.6.0",
     "postcss-custom-properties": "^5.0.1",
-    "react-geomicons": "^2.0.5",
+    "react-geomicons": "^2.1.0",
     "rebass": "^0.3.1",
     "reflexbox": "^2.1.0",
     "scrape-it": "^3.2.0",
