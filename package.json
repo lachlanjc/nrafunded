@@ -33,7 +33,7 @@
     "postcss-custom-properties": "^5.0.1",
     "react-geomicons": "^2.0.5",
     "rebass": "^0.3.1",
-    "reflexbox": "^2.1.0",
+    "reflexbox": "^2.2.1",
     "scrape-it": "^3.2.0",
     "static-react": "^3.2.0",
     "unformat-usd": "^0.1.1",
