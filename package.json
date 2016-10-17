@@ -37,7 +37,7 @@
     "scrape-it": "^3.2.0",
     "static-react": "^3.2.0",
     "unformat-usd": "^0.1.1",
-    "velocity-react": "^1.1.5"
+    "velocity-react": "^1.1.9"
   },
   "author": "Lachlan Campbell <lachlan.campbell@icloud.com>",
   "license": "MIT",
