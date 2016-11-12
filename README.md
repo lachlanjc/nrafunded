@@ -14,11 +14,11 @@ See how much the NRA gives your Congress members — and speak out. Built with R
 
 Command | Description
 --- | ---
-`npm run data` | Scrape and parse the source data for funding, etc. Combines `npm run scrape` and `npm run parse`.
-`npm run render` | Render static components. You have to do this after every change to the body or analysis sections (`render:analysis` and `render:body` are also available). This is very much necessary for performance.
-`npm run css` | Regenerate basscss imports.
-`npm run build` | Build the site to `dist/`.
-`npm run deploy` | Build the site and deploy it to GitHub.
+`data` | Scrape and parse the source data for funding, etc. Combines `npm run scrape` and `npm run parse`.
+`render` | Render static components. You have to do this after every change to the body or analysis sections (`render:analysis` and `render:body` are also available). This is very much necessary for performance.
+`css` | Regenerate basscss imports.
+`build` | Build the site to `dist/`.
+`deploy` | Build the site and deploy it to GitHub.
 
 ## Contributing
 
