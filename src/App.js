@@ -14,7 +14,7 @@ import utilities from './css/utilities.css'
 /* eslint-enable no-unused-vars */
 
 import analysis from '../public/analysis.html'
-import rendered from '../public/rendered.html'
+import body from '../public/body.html'
 
 const App = () => (
   <main>
@@ -23,7 +23,7 @@ const App = () => (
       <Search />
       <Nav />
       <div dangerouslySetInnerHTML={{ __html: analysis }} />
-      <div dangerouslySetInnerHTML={{ __html: rendered }} />
+      <div dangerouslySetInnerHTML={{ __html: body }} />
     </Container>
     <Footer />
   </main>
