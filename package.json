@@ -12,6 +12,7 @@
     "scrape": "node parse/scraper.js",
     "parse": "node parse/parse.js",
     "data": "npm run scrape && npm run parse",
+    "render": "npm run render:analysis && npm run render:body",
     "render:analysis": "static-react --no-doctype src/Analysis.js > public/analysis.html",
     "render:body": "static-react --no-doctype src/Body.js > public/body.html"
   },
