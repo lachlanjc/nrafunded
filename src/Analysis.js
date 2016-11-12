@@ -145,7 +145,6 @@ const Analysis = () => {
           value={violence.masses}
         />
       </article>
-      <ElectionLinks />
     </Base>
   )
 }
