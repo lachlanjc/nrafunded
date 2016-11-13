@@ -1,6 +1,8 @@
 
 import React from 'react'
 
+import Icon from './Icon'
+
 const RepSocial = ({
   twitterid,
   website,
@@ -23,9 +25,11 @@ const RepSocialItem = ({ link, title, icon, ...props }) => (
     aria-label={title}
     className='tooltipped social-link pr3'
     >
-    <svg width={24} height={24}>
-      <use xlinkHref={`#${icon}`} />
-    </svg>
+    <Icon
+      name={icon}
+      width={24}
+      height={24}
+    />
   </a>
 )
 

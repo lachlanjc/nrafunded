@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import moment from 'moment'
 
+import Icon from './Icon'
+
 const RepDates = ({
   startdate,
   enddate,
@@ -10,9 +12,7 @@ const RepDates = ({
     aria-label='Term dates'
     className='flex items-center tooltipped meta'
   >
-    <svg width={16} height={16}>
-      <use xlinkHref='#clock' />
-    </svg>
+    <Icon name='clock' />
     <span className='pl1'>
       {moment(startdate).format('MMM D, YYYY')} - {moment(enddate).format('MMM D, YYYY')}
     </span>
