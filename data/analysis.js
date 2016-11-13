@@ -41,7 +41,7 @@ _.forEach(percentages, (data, key) => {
 
 const funding = {
   percent: _.round(_.pull(funds, 0).length * 100 / people.length, 1),
-  lobbying: 2530000,
+  lobbying: 52650128,
   forDems: 1564,
   antiDems: 36976822,
   forRepubs: 15660786,

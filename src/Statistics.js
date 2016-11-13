@@ -20,7 +20,7 @@ const Statistics = () => (
         value={funding.percent}
       />
       <Stat
-        label='Total NRA budget for federal lobbying'
+        label='Total NRA budget for government lobbying'
         unit='$'
         value={commaNumber(funding.lobbying)}
       />
