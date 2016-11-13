@@ -1,17 +1,20 @@
 
-import React from 'react'
-import { Heading } from 'rebass'
+import React, { PropTypes } from 'react'
+import { Base } from 'rebass'
 
-const SectionHeading = (props) => (
-  <Heading
+const SectionHeading = ({ name, ...props }) => (
+  <Base
     {...props}
-    level={2}
+    tagName='h2'
     theme='primary'
-    mt={0}
-    pb={1}
-    mb={2}
-    _className='bb'
-  />
+    className='section-heading'
+  >
+    <span className='section-heading__name'>{name}</span>
+  </Base>
 )
+
+SectionHeading.propTypes = {
+  name: PropTypes.string.isRequired
+}
 
 export default SectionHeading

@@ -81,9 +81,7 @@ class Search extends Component {
     const { loading, results } = this.state
     return (
       <Section>
-        <SectionHeading>
-          Find your legislators…
-        </SectionHeading>
+        <SectionHeading name='Find your legislators…' />
         <Flex align='flex-end' mb={2}>
           <div className='pr2' style={{ flex: 1 }}>
             <Label

@@ -10,9 +10,7 @@ const states = require('../data/states.json')
 
 const Nav = () => (
   <Section>
-    <SectionHeading>
-      or jump to your state…
-    </SectionHeading>
+    <SectionHeading name='or jump to your state…' />
     <Flex wrap gutter={1}>
       {_.map(states, s => (
         <Box key={s.id}>

@@ -29,9 +29,33 @@
 
 /* This CSS isn't great, but inlining it everywhere is worse */
 
+.section-heading {
+  margin-top: 0;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  position: relative;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.section-heading:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: -1;
+}
+.section-heading__name {
+  background: #fff;
+  display: inline-block;
+  padding: 0 1rem 0 0;
+}
+
 .input {
   border-radius: 2px;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   font-family: inherit;
   font-size: inherit;
   height: 32px;
@@ -116,7 +140,8 @@
   display: inline-block;
   border-radius: 2rem;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
+  font-variant: small-caps;
 }
 
 .people {

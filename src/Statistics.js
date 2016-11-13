@@ -12,9 +12,7 @@ const { percentages, funding } = stats
 
 const Statistics = () => (
   <Section>
-    <SectionHeading>
-      NRA funding (2016)
-    </SectionHeading>
+    <SectionHeading name='NRA funding (2016)' />
     <article className='md-flex items-center flex-wrap stats-wide'>
       <Stat
         label='of Congress received NRA funding'
