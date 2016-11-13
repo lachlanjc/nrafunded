@@ -1,7 +1,7 @@
 module.exports = {
   type: 'react-app',
   webpack: {
-    publicPath: 'https://lachlanjc.me/nrafunded/',
+    publicPath: '',
     extra: {
       module: {
         loaders: [
