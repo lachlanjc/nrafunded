@@ -7,7 +7,7 @@
     "build": "nwb build-react-app",
     "clean": "nwb clean-app",
     "css": "postcss node_modules/basscss-margin/index.css -u postcss-custom-properties -o src/css/basscss-margin.css && postcss node_modules/basscss-padding/index.css -u postcss-custom-properties -o src/css/basscss-padding.css",
-    "deploy": "npm run build && cp CNAME dist/CNAME && gh-pages -d dist",
+    "deploy": "npm run build && cp CNAME dist/CNAME && touch dist/.nojekyll && gh-pages -d dist",
     "start": "nwb serve-react-app --port 4000",
     "scrape": "node parse/scraper.js",
     "parse": "node parse/parse.js",
