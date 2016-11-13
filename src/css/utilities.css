@@ -26,10 +26,10 @@
 .sm-show { display: none; }
 .md-show { display: none; }
 
-@media (min-width: 40em) {
+@media (min-width: 10em) {
   .sm-show { display: block; }
 }
-@media (min-width: 52em) {
+@media (min-width: 30em) {
   .md-show { display: block; }
   .md-flex { display: flex; }
   .md-col-12 { width: 100%; }

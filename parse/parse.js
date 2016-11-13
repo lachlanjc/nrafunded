@@ -36,6 +36,6 @@ fs.writeFile('./data/data.json', JSON.stringify(data), (err) => {
   if (err) {
     console.log(err)
   } else {
-    console.log('✅  Parsed data')
+    console.log('✅ Parsed data')
   }
 })

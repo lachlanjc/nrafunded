@@ -2,11 +2,12 @@
 import React from 'react'
 import _ from 'lodash'
 
+import StateName from './StateName'
 import Representative from './Representative'
 
 const State = ({ name, abbrev, people, ...props }) => (
   <section id={abbrev} {...props}>
-    <h2 className='state' children={name} />
+    <StateName name={name} />
     <People people={people} />
   </section>
 )

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 const CandidatePhoto = ({
   src,
-  size,
+  size = 112,
   href
 }) => (
   <a
@@ -23,10 +23,6 @@ const CandidatePhoto = ({
     />
   </a>
 )
-
-CandidatePhoto.defaultProps = {
-  size: 112
-}
 
 CandidatePhoto.propTypes = {
   src: PropTypes.string.isRequired,

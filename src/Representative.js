@@ -23,7 +23,7 @@ const Representative = ({ data, ...props }) => (
     <RepSocial
       phone={data.phone}
       twitterid={data.person.twitterid}
-      contact={data.extra ? data.extra.contact_form : null}
+      contact={data.extra && data.extra.contact_form}
       website={data.website}
     />
   </div>

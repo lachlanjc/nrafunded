@@ -1,11 +1,14 @@
+
 import React, { PropTypes } from 'react'
 import moment from 'moment'
 
 import Icon from './Icon'
 
+const formatDate = date => moment(date).format('MMM D, YYYY')
+
 const RepDates = ({
-  startdate,
-  enddate,
+  startDate,
+  endDate,
   ...props
 }) => (
   <div
@@ -14,7 +17,9 @@ const RepDates = ({
   >
     <Icon name='clock' />
     <span className='pl1'>
-      {moment(startdate).format('MMM D, YYYY')} - {moment(enddate).format('MMM D, YYYY')}
+      {formatDate(startDate)}
+      {' - '}
+      {formatDate(endDate)}
     </span>
   </div>
 )

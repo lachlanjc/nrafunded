@@ -30,10 +30,10 @@ const Header = () => (
       </div>
       <footer style={{ opacity: '.8', fontWeight: 500 }}>
         <Text small>
-          Funding data from the Center for Responsive Politics, 2014
+          Funding data from the Center for Responsive Politics, 2016
         </Text>
         <Text small>
-          Gun violence data from the Gun Violence Archive, 2014
+          Gun violence data from the Gun Violence Archive, 2015
         </Text>
       </footer>
     </Base>

@@ -1,20 +1,18 @@
 
 import React from 'react'
 import { Flex, Box } from 'reflexbox'
-import { Base, Heading, NavItem } from 'rebass'
+import { NavItem } from 'rebass'
 import _ from 'lodash'
 
+import Section from './Section'
+import SectionHeading from './SectionHeading'
 const states = require('../data/states.json')
 
 const Nav = () => (
-  <Base my={3}>
-    <Heading
-      level={2}
-      theme='primary'
-      mt={0} pb={1} mb={2}
-      _className='bb'
-      children='or jump to your state…'
-    />
+  <Section>
+    <SectionHeading>
+      or jump to your state…
+    </SectionHeading>
     <Flex wrap gutter={1}>
       {_.map(states, s => (
         <Box key={s.id}>
@@ -27,7 +25,7 @@ const Nav = () => (
         </Box>
       ))}
     </Flex>
-  </Base>
+  </Section>
 )
 
 export default Nav

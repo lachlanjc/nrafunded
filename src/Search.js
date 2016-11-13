@@ -4,8 +4,6 @@ import _ from 'lodash'
 import axios from 'axios'
 
 import {
-  Base,
-  Heading,
   Text,
   Label,
   Button,
@@ -14,6 +12,9 @@ import {
 } from 'rebass'
 import { Flex } from 'reflexbox'
 import { VelocityTransitionGroup } from 'velocity-react'
+
+import Section from './Section'
+import SectionHeading from './SectionHeading'
 
 class Search extends Component {
   constructor () {
@@ -79,14 +80,10 @@ class Search extends Component {
   render () {
     const { loading, results } = this.state
     return (
-      <Base my={3}>
-        <Heading
-          level={2}
-          theme='primary'
-          mt={0} pb={1} mb={2}
-          _className='bb'
-          children='Find your legislators…'
-        />
+      <Section>
+        <SectionHeading>
+          Find your legislators…
+        </SectionHeading>
         <Flex align='flex-end' mb={2}>
           <div className='pr2' style={{ flex: 1 }}>
             <Label
@@ -117,7 +114,7 @@ class Search extends Component {
             results={results}
           />
         }
-      </Base>
+      </Section>
     )
   }
 }
