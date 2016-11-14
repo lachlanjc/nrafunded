@@ -27,7 +27,7 @@
     "comma-number": "^1.1.0",
     "gh-pages": "^0.11.0",
     "html-loader": "^0.4.4",
-    "lodash": "^4.16.6",
+    "lodash": "^4.17.0",
     "moment": "^2.16.0",
     "nwb": "0.12.x",
     "postcss-cli": "latest",
