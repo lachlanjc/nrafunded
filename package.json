@@ -29,7 +29,7 @@
     "html-loader": "^0.4.4",
     "lodash": "^4.17.2",
     "moment": "^2.17.0",
-    "nwb": "0.12.x",
+    "nwb": "0.14.1",
     "postcss-cli": "latest",
     "postcss-custom-properties": "latest",
     "react-geomicons": "^2.1.0",
