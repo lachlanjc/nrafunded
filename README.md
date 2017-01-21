@@ -2,7 +2,7 @@
 
 See how much the NRA gives your Congress members — and speak out. Built with React, [nwb](https://github.com/insin/nwb), [Rebass](http://jxnblk.com/rebass), [Geomicons](http://jxnblk.com/react-geomicons), [static-react](https://github.com/jxnblk/static-react), [axios](https://github.com/mzabriskie/axios), and [scrape-it](https://github.com/IonicaBizau/scrape-it).
 
-[**nrafunded.us**](https://nrafunded.us/)
+[**→ Check it out**](https://nrafunded.now.sh/)
 
 ## Local development
 
@@ -24,10 +24,7 @@ Command | Description
 
 This site was built fairly quickly, and there are many things that could be improved (design, documentation, testing, tooling, performance, etc), so please contribute! Fork this repo, create a branch, push your work to GitHub, and [submit a pull request](https://github.com/lachlanjc/nrafunded/compare). Know that this repo follows [JavaScript Standard Style](http://standardjs.com).
 
-## License
-
 MIT licensed.
 
 ___
-
-*A thing by @lachlanjc.*
+*Another thing by [@lachlanjc](https://twitter.com/lachlanjc).*
