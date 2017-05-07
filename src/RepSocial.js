@@ -1,45 +1,34 @@
+import React from "react";
 
-import React from 'react'
+import Icon from "./Icon";
 
-import Icon from './Icon'
-
-const RepSocial = ({
-  twitterid,
-  website,
-  contact,
-  phone,
-  ...props
-}) => (
-  <div className='flex flex-wrap items-center mt2 lh0' {...props}>
+const RepSocial = ({ twitterid, website, contact, phone, ...props }) => (
+  <div className="flex flex-wrap items-center mt2 lh0" {...props}>
     {phone && <RepSocialPhone phone={phone} />}
     {twitterid && <RepSocialTwitter twitterid={twitterid} />}
     {contact && <RepSocialContact contact={contact} />}
     {website && <RepSocialWebsite website={website} />}
   </div>
-)
+);
 
 const RepSocialItem = ({ link, title, icon, ...props }) => (
   <a
     href={link}
-    target='_blank'
+    target="_blank"
     aria-label={title}
-    className='tooltipped social-link pr3'
-    >
-    <Icon
-      name={icon}
-      width={24}
-      height={24}
-    />
+    className="tooltipped social-link pr3"
+  >
+    <Icon name={icon} width={24} height={24} />
   </a>
-)
+);
 
 const RepSocialTwitter = ({ twitterid }) => (
   <RepSocialItem
     link={`https://twitter.com/${twitterid}`}
-    title='Twitter'
-    icon='twitter'
+    title="Twitter"
+    icon="twitter"
   />
-)
+);
 
 // const RepSocialFacebook = ({ facebookid }) => (
 //   <RepSocialItem
@@ -51,12 +40,8 @@ const RepSocialTwitter = ({ twitterid }) => (
 // )
 
 const RepSocialContact = ({ contact }) => (
-  <RepSocialItem
-    link={contact}
-    title='Contact'
-    icon='compose'
-  />
-)
+  <RepSocialItem link={contact} title="Contact" icon="compose" />
+);
 
 // const RepSocialAddress = ({ contact }) => {
 //   return (
@@ -70,19 +55,15 @@ const RepSocialContact = ({ contact }) => (
 // }
 
 const RepSocialWebsite = ({ website }) => (
-  <RepSocialItem
-    link={website}
-    title='Website'
-    icon='link'
-  />
-)
+  <RepSocialItem link={website} title="Website" icon="link" />
+);
 
 const RepSocialPhone = ({ phone }) => (
   <RepSocialItem
     link={`tel:${phone}`}
     title={`Phone number: ${phone}`}
-    icon='phone'
+    icon="phone"
   />
-)
+);
 
-export default RepSocial
+export default RepSocial;

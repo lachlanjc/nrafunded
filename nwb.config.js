@@ -1,13 +1,11 @@
 module.exports = {
-  type: 'react-app',
+  type: "react-app",
   webpack: {
-    publicPath: '',
+    publicPath: "",
     extra: {
       module: {
-        loaders: [
-          { test: /\.html/, loader: 'html' }
-        ]
+        loaders: [{ test: /\.html/, loader: "html" }]
       }
     }
   }
-}
+};

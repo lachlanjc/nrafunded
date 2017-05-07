@@ -1,138 +1,132 @@
+import React, { Component } from "react";
+import _ from "lodash";
+import axios from "axios";
 
-import React, { Component } from 'react'
-import _ from 'lodash'
-import axios from 'axios'
+import { Text, Label, Button, Menu, NavItem } from "rebass";
+import { Flex } from "reflexbox";
+import { VelocityTransitionGroup } from "velocity-react";
 
-import {
-  Text,
-  Label,
-  Button,
-  Menu,
-  NavItem
-} from 'rebass'
-import { Flex } from 'reflexbox'
-import { VelocityTransitionGroup } from 'velocity-react'
-
-import Section from './Section'
-import SectionHeading from './SectionHeading'
+import Section from "./Section";
+import SectionHeading from "./SectionHeading";
 
 class Search extends Component {
-  constructor () {
-    super()
+  constructor() {
+    super();
     this.state = {
-      address: '',
+      address: "",
       loading: false,
       results: [],
       lat: 0,
       lng: 0
-    }
-    this.onKey = this.onKey.bind(this)
-    this.onClick = this.onClick.bind(this)
-    this.fetchData = this.fetchData.bind(this)
-    this.getLegislators = this.getLegislators.bind(this)
+    };
+    this.onKey = this.onKey.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+    this.getLegislators = this.getLegislators.bind(this);
   }
 
-  onKey (value, keyCode, e) {
-    const val = _.trim(value)
+  onKey(value, keyCode, e) {
+    const val = _.trim(value);
     if (!_.isEqual(val, this.state.address)) {
-      this.setState({ address: val })
+      this.setState({ address: val });
     }
     // When you press return
     if (_.isEqual(keyCode, 13)) {
-      this.onClick()
+      this.onClick();
     }
   }
 
-  fetchData () {
-    this.setState({ loading: true, results: [] })
-    axios.get(`//maps.googleapis.com/maps/api/geocode/json?&address=${this.state.address}`)
+  fetchData() {
+    this.setState({ loading: true, results: [] });
+    axios
+      .get(
+        `//maps.googleapis.com/maps/api/geocode/json?&address=${this.state.address}`
+      )
       .then(r => {
         if (!_.isEmpty(r.data.results[0])) {
-          const { lat, lng } = r.data.results[0].geometry.location
-          this.setState({ lat, lng })
-          this.getLegislators()
+          const { lat, lng } = r.data.results[0].geometry.location;
+          this.setState({ lat, lng });
+          this.getLegislators();
         }
-      })
+      });
   }
 
-  getLegislators () {
-    const { lat, lng } = this.state
-    axios.get(`/legislators/findByLatLng?latitude=${lat}&longitude=${lng}`, {
-      baseURL: 'https://crossorigin.me/https://democracy.io/api/1'
-    })
+  getLegislators() {
+    const { lat, lng } = this.state;
+    axios
+      .get(`/legislators/findByLatLng?latitude=${lat}&longitude=${lng}`, {
+        baseURL: "https://crossorigin.me/https://democracy.io/api/1"
+      })
       .then(r => {
         this.setState({
           loading: false,
           results: r.data.data
-        })
+        });
       })
       .catch(r => {
-        console.log('error reaching sunlightfoundation')
-      })
+        console.log("error reaching sunlightfoundation");
+      });
   }
 
-  onClick (e) {
+  onClick(e) {
     if (!_.isEmpty(this.state.address)) {
-      this.fetchData()
+      this.fetchData();
     }
   }
 
-  render () {
-    const { loading, results } = this.state
+  render() {
+    const { loading, results } = this.state;
     return (
       <Section>
-        <SectionHeading name='Find your legislators…' />
-        <Flex align='flex-end' mb={2}>
-          <div className='pr2' style={{ flex: 1 }}>
+        <SectionHeading name="Find your legislators…" />
+        <Flex align="flex-end" mb={2}>
+          <div className="pr2" style={{ flex: 1 }}>
             <Label
-              htmlFor='addressInput'
+              htmlFor="addressInput"
               style={{ lineHeight: 2 }}
-              children='Enter your US address'
+              children="Enter your US address"
             />
             <input
-              name='address'
-              id='addressInput'
-              placeholder='1 Infinite Loop, Cupertino, CA'
+              name="address"
+              id="addressInput"
+              placeholder="1 Infinite Loop, Cupertino, CA"
               onKeyDown={e => this.onKey(e.target.value, e.keyCode)}
-              className='input'
+              className="input"
             />
           </div>
-          <div className='pt2'>
+          <div className="pt2">
             <Button
-              backgroundColor='green' color='white'
-              inverted rounded
-              children='Search'
+              backgroundColor="green"
+              color="white"
+              inverted
+              rounded
+              children="Search"
               onClick={e => this.onClick(e)}
             />
           </div>
         </Flex>
         {(loading || results) &&
-          <SearchResults
-            loading={loading}
-            results={results}
-          />
-        }
+          <SearchResults loading={loading} results={results} />}
       </Section>
-    )
+    );
   }
 }
 
 const SearchResults = ({ loading, results, ...props }) => (
   <VelocityTransitionGroup
-    component='section'
-    enter={{ animation: 'slideDown', duration: 256 }}
-    leave={{ animation: 'slideUp', duration: 256 }}>
-    {_.isEqual(loading, true) &&
-      <Text color='midgray' children='Loading…' />
-    }
+    component="section"
+    enter={{ animation: "slideDown", duration: 256 }}
+    leave={{ animation: "slideUp", duration: 256 }}
+  >
+    {_.isEqual(loading, true) && <Text color="midgray" children="Loading…" />}
     {!_.isEmpty(results) && [
       <Label
-        is='p'
+        is="p"
         style={{ marginBottom: 4 }}
-        children='Jump to a legislator'
-        key='label'
+        children="Jump to a legislator"
+        key="label"
       />,
-      <Menu is='article' key='menu' style={{ maxWidth: '16rem' }} rounded>
+      <Menu is="article" key="menu" style={{ maxWidth: "16rem" }} rounded>
         {_.map(results, r => (
           <SearchResult
             key={r.bioguideId}
@@ -145,15 +139,15 @@ const SearchResults = ({ loading, results, ...props }) => (
       </Menu>
     ]}
   </VelocityTransitionGroup>
-)
+);
 
 const SearchResult = ({ title, firstname, lastname, state }) => (
   <NavItem
-    is='a'
+    is="a"
     href={`#${state}-${lastname}`}
     style={{ fontWeight: 400 }}
     children={`${title} ${firstname} ${lastname}`}
   />
-)
+);
 
-export default Search
+export default Search;
