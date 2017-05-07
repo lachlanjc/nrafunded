@@ -1,5 +1,6 @@
-import React, { PropTypes } from "react";
-import _ from "lodash";
+import React from "react";
+import PropTypes from "prop-types";
+import { isNumber, isString } from "lodash";
 
 const Stat = ({ value, label, unit, ...props }) => {
   let type;
@@ -7,7 +8,7 @@ const Stat = ({ value, label, unit, ...props }) => {
     if (unit === "%") type = "stat--percentage";
     if (unit === "$") type = "stat--dollars";
   }
-  if (!_.isString(value) && !_.isNumber(value)) type = "stat--graph";
+  if (!isString(value) && !isNumber(value)) type = "stat--graph";
   return (
     <div className="stat" {...props}>
       <span className={`stat__value ${type}`}>

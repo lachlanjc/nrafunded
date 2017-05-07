@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import _ from "lodash";
+import { trim, isEqual, isEmpty, map } from "lodash";
 import axios from "axios";
 
 import { Text, Label, Button, Menu, NavItem } from "rebass";
@@ -26,12 +26,12 @@ class Search extends Component {
   }
 
   onKey(value, keyCode, e) {
-    const val = _.trim(value);
-    if (!_.isEqual(val, this.state.address)) {
+    const val = trim(value);
+    if (!isEqual(val, this.state.address)) {
       this.setState({ address: val });
     }
     // When you press return
-    if (_.isEqual(keyCode, 13)) {
+    if (isEqual(keyCode, 13)) {
       this.onClick();
     }
   }
@@ -43,7 +43,7 @@ class Search extends Component {
         `//maps.googleapis.com/maps/api/geocode/json?&address=${this.state.address}`
       )
       .then(r => {
-        if (!_.isEmpty(r.data.results[0])) {
+        if (!isEmpty(r.data.results[0])) {
           const { lat, lng } = r.data.results[0].geometry.location;
           this.setState({ lat, lng });
           this.getLegislators();
@@ -69,7 +69,7 @@ class Search extends Component {
   }
 
   onClick(e) {
-    if (!_.isEmpty(this.state.address)) {
+    if (!isEmpty(this.state.address)) {
       this.fetchData();
     }
   }
@@ -118,8 +118,8 @@ const SearchResults = ({ loading, results, ...props }) => (
     enter={{ animation: "slideDown", duration: 256 }}
     leave={{ animation: "slideUp", duration: 256 }}
   >
-    {_.isEqual(loading, true) && <Text color="midgray" children="Loading…" />}
-    {!_.isEmpty(results) && [
+    {isEqual(loading, true) && <Text color="midgray" children="Loading…" />}
+    {!isEmpty(results) && [
       <Label
         is="p"
         style={{ marginBottom: 4 }}
@@ -127,7 +127,7 @@ const SearchResults = ({ loading, results, ...props }) => (
         key="label"
       />,
       <Menu is="article" key="menu" style={{ maxWidth: "16rem" }} rounded>
-        {_.map(results, r => (
+        {map(results, r => (
           <SearchResult
             key={r.bioguideId}
             title={r.title}

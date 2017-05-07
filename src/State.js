@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "lodash";
+import { map } from "lodash";
 
 import StateName from "./StateName";
 import Representative from "./Representative";
@@ -13,7 +13,7 @@ const State = ({ name, abbrev, people, ...props }) => (
 
 const People = ({ people }) => (
   <article className="md-flex people">
-    {_.map(people, person => <Representative data={person} key={person.id} />)}
+    {map(people, person => <Representative data={person} key={person.id} />)}
   </article>
 );
 

@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
 const Icon = ({ name, width = 16, height = 16, ...props }) => (
   <svg {...props} width={width} height={height}>
