@@ -7,17 +7,15 @@ import Search from './Search'
 import Nav from './Nav'
 import Footer from './Footer'
 
-import styles from './css/app.css'
-import tooltips from './css/tooltips.css'
-import utilities from './css/utilities.css'
-
-import analysis from '../public/analysis.html'
-import body from '../public/body.html'
+import css from './app.css'
+import analysis from '../docs/analysis.html'
+import body from '../docs/body.html'
 
 const App = () => (
   <Provider theme={theme}>
+    <style dangerouslySetInnerHTML={{ __html: css }} />
     <Header />
-    <Container is="article" px={2} py={4} style={{ maxWidth: '48rem' }}>
+    <Container is="article" width={48 * 16} px={2} py={4}>
       <Search />
       <Nav />
       <div dangerouslySetInnerHTML={{ __html: analysis }} />
