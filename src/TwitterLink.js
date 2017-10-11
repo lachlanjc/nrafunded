@@ -19,7 +19,7 @@ TwitterLink.propTypes = {
 
 TwitterLink.defaultProps = {
   text: 'NRA Funded',
-  url: 'https://nrafunded.us/'
+  url: 'https://lachlanjc.me/nrafunded'
 }
 
 export default TwitterLink

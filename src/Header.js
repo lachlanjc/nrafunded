@@ -18,7 +18,7 @@ const Header = () => (
       </Text>
       <Flex justify="center" align="center" mt={3} mb={2}>
         <span className="sm-show pr1">Built by</span>
-        <Pill href="https://lachlanjc.me/" children="@lachlanjc" />
+        <Pill href="https://lachlanjc.glitch.me/" children="@lachlanjc" />
         <span className="pl1 pr1"> – </span>
         <TwitterLink text="Find out if your Congress members are receiving funding from the NRA —" />
       </Flex>
