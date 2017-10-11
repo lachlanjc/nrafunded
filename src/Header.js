@@ -5,17 +5,18 @@ import Pill from './Pill'
 import TwitterLink from './TwitterLink'
 
 const Header = () => (
-  <Banner is="header" bg="red" color="white" style={{ minHeight: 256 }}>
-    <Container width={48 * 16}>
-      <Heading>NRA Funded</Heading>
-      <Text my={2}>
-        Many of our US Congress members receive funding from the NRA and are
-        keeping quiet about the gun violence in this country.
+  <Banner
+    is="header"
+    bg="red"
+    color="white"
+    style={{ minHeight: 256, textAlign: 'center' }}
+  >
+    <Container width={48 * 16} py={4}>
+      <Heading f={6}>NRA Funded</Heading>
+      <Text f={4} my={2}>
+        The NRA is paying off Congress at the expense of lives.
       </Text>
-      <Text my={2}>
-        Find out who represents you in Congress and if they're being funded.
-      </Text>
-      <Flex align="center" my={2}>
+      <Flex justify="center" align="center" mt={3} mb={2}>
         <span className="sm-show pr1">Built by</span>
         <Pill href="https://lachlanjc.me/" children="@lachlanjc" />
         <span className="pl1 pr1"> – </span>
