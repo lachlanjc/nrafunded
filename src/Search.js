@@ -1,153 +1,152 @@
-import React, { Component } from "react";
-import { trim, isEqual, isEmpty, map } from "lodash";
-import axios from "axios";
+import React, { Component } from 'react'
+import {
+  trim,
+  isEmpty,
+  isEqual,
+  toNumber,
+  map,
+  join,
+  keys,
+  find,
+  filter,
+  last,
+  words,
+  upperCase,
+  includes
+} from 'lodash'
+import axios from 'axios'
 
-import { Text, Label, Button, Menu, NavItem } from "rebass";
-import { Flex } from "reflexbox";
-import { VelocityTransitionGroup } from "velocity-react";
+import { Flex, Box, Text, Label, Input, Button } from 'rebass'
+import { VelocityTransitionGroup } from 'velocity-react'
 
-import Section from "./Section";
-import SectionHeading from "./SectionHeading";
+import Section from './Section'
+import SectionHeading from './SectionHeading'
 
 class Search extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
-      address: "",
+      address: '',
       loading: false,
-      results: [],
-      lat: 0,
-      lng: 0
-    };
-    this.onKey = this.onKey.bind(this);
-    this.onClick = this.onClick.bind(this);
-    this.fetchData = this.fetchData.bind(this);
-    this.getLegislators = this.getLegislators.bind(this);
+      rep: {}
+    }
+    this.onKey = this.onKey.bind(this)
+    this.onClick = this.onClick.bind(this)
+    this.fetchData = this.fetchData.bind(this)
   }
 
   onKey(value, keyCode, e) {
-    const val = trim(value);
+    const val = trim(value)
     if (!isEqual(val, this.state.address)) {
-      this.setState({ address: val });
+      this.setState({ address: val })
     }
     // When you press return
     if (isEqual(keyCode, 13)) {
-      this.onClick();
+      this.onClick()
     }
   }
 
   fetchData() {
-    this.setState({ loading: true, results: [] });
-    axios
-      .get(
-        `//maps.googleapis.com/maps/api/geocode/json?&address=${this.state.address}`
+    const { address } = this.state
+    this.setState({ loading: true })
+    const payload = {
+      key: 'AIzaSyAC098ZQK-jP_Q5fRpG_0of9LCTvOtdEFA',
+      address,
+      fields: 'divisions,officials',
+      includeOffices: true.toString()
+    }
+    const query = map(keys(payload), key =>
+      join(map([key, payload[key]], encodeURIComponent), '=')
+    )
+    const keyMatch = key =>
+      key.match(
+        /ocd-division\/country:us\/(?:state|district):(\w+)(?:\/cd:)(\d+)/
       )
-      .then(r => {
-        if (!isEmpty(r.data.results[0])) {
-          const { lat, lng } = r.data.results[0].geometry.location;
-          this.setState({ lat, lng });
-          this.getLegislators();
-        }
-      });
-  }
-
-  getLegislators() {
-    const { lat, lng } = this.state;
+    const url = `https://www.googleapis.com/civicinfo/v2/representatives?${join(
+      query,
+      '&'
+    )}`
     axios
-      .get(`/legislators/findByLatLng?latitude=${lat}&longitude=${lng}`, {
-        baseURL: "https://crossorigin.me/https://democracy.io/api/1"
-      })
+      .get(url)
       .then(r => {
-        this.setState({
-          loading: false,
-          results: r.data.data
-        });
+        const res = r.data
+        const divKey = find(keys(res.divisions), key => keyMatch(key))
+        const state = upperCase(keyMatch(divKey)[1])
+        const district = state === 'dc' ? 1 : toNumber(divKey.match(/\d+$/)[0])
+
+        const record = res.divisions[divKey]
+        const official = res.officials[record.officeIndices[0] + 1]
+        console.log(official)
+
+        if (state && district) {
+          const record = official
+          record.lastName = last(words(official.name))
+          record.state = state
+          console.log(record)
+          this.setState({ loading: false, rep: record })
+        }
       })
-      .catch(r => {
-        console.log("error reaching sunlightfoundation");
-      });
+      .catch(e => {
+        console.error(e)
+      })
   }
 
   onClick(e) {
     if (!isEmpty(this.state.address)) {
-      this.fetchData();
+      this.fetchData()
     }
   }
 
   render() {
-    const { loading, results } = this.state;
+    const { loading, rep } = this.state
     return (
       <Section>
         <SectionHeading name="Find your legislators…" />
         <Flex align="flex-end" mb={2}>
-          <div className="pr2" style={{ flex: 1 }}>
-            <Label
-              htmlFor="addressInput"
-              style={{ lineHeight: 2 }}
-              children="Enter your US address"
-            />
-            <input
+          <Box pr={2} style={{ flex: 1 }}>
+            <Label htmlFor="addressInput" children="Enter your US address" />
+            <Input
               name="address"
               id="addressInput"
               placeholder="1 Infinite Loop, Cupertino, CA"
               onKeyDown={e => this.onKey(e.target.value, e.keyCode)}
-              className="input"
+              w={1}
+              style={{ height: 32 }}
             />
-          </div>
-          <div className="pt2">
+          </Box>
+          <Box pt={2}>
             <Button
-              backgroundColor="green"
+              bg="green"
               color="white"
-              inverted
-              rounded
               children="Search"
               onClick={e => this.onClick(e)}
             />
-          </div>
+          </Box>
         </Flex>
-        {(loading || results) &&
-          <SearchResults loading={loading} results={results} />}
+        {(loading || rep) && <SearchResults loading={loading} rep={rep} />}
       </Section>
-    );
+    )
   }
 }
 
-const SearchResults = ({ loading, results, ...props }) => (
+const SearchResults = ({ loading, rep, ...props }) => (
   <VelocityTransitionGroup
     component="section"
-    enter={{ animation: "slideDown", duration: 256 }}
-    leave={{ animation: "slideUp", duration: 256 }}
+    enter={{ animation: 'slideDown', duration: 256 }}
+    leave={{ animation: 'slideUp', duration: 256 }}
   >
-    {isEqual(loading, true) && <Text color="midgray" children="Loading…" />}
-    {!isEmpty(results) && [
-      <Label
-        is="p"
-        style={{ marginBottom: 4 }}
-        children="Jump to a legislator"
-        key="label"
-      />,
-      <Menu is="article" key="menu" style={{ maxWidth: "16rem" }} rounded>
-        {map(results, r => (
-          <SearchResult
-            key={r.bioguideId}
-            title={r.title}
-            firstname={r.firstName}
-            lastname={r.lastName}
-            state={r.state}
-          />
-        ))}
-      </Menu>
-    ]}
+    {!isEmpty(rep) ? (
+      <Button
+        is="a"
+        href={`#${rep.state}-${rep.lastName}`}
+        title="Tap to jump to Congressperson"
+        bg="red"
+        children={`Jump to ${rep.name}`}
+      />
+    ) : (
+      loading && <Text color="midgray" children="Loading…" />
+    )}
   </VelocityTransitionGroup>
-);
+)
 
-const SearchResult = ({ title, firstname, lastname, state }) => (
-  <NavItem
-    is="a"
-    href={`#${state}-${lastname}`}
-    style={{ fontWeight: 400 }}
-    children={`${title} ${firstname} ${lastname}`}
-  />
-);
-
-export default Search;
+export default Search

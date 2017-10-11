@@ -1,13 +1,16 @@
 import React from 'react'
 
+import { Provider } from 'rebass'
+import theme from './theme'
+
 import Statistics from './Statistics'
 import Violence from './Violence'
 
 const Analysis = () => (
-  <main>
+  <Provider theme={theme}>
     <Statistics />
     <Violence />
-  </main>
+  </Provider>
 )
 
 export default Analysis

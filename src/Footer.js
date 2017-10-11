@@ -1,29 +1,29 @@
-import React from "react";
-import { Base } from "rebass";
+import React from 'react'
+import { Box } from 'rebass'
 
 const FooterLink = ({ unpadLeft, unpadRight, ...props }) => (
-  <Base
-    tagName="a"
+  <Box
+    is="a"
     style={{
-      textDecoration: "none",
+      textDecoration: 'none',
       paddingLeft: unpadLeft ? null : 4,
       paddingRight: unpadRight ? null : 4
     }}
     {...props}
   />
-);
+)
 
 const Footer = () => (
-  <Base
+  <Box
     is="footer"
     px={1}
     py={3}
     mt={3}
     style={{
-      borderTop: "1px solid #dae4eb",
-      backgroundColor: "#f4f7f9",
-      color: "#566b7b",
-      textAlign: "center"
+      borderTop: '1px solid #dae4eb',
+      backgroundColor: '#f4f7f9',
+      color: '#566b7b',
+      textAlign: 'center'
     }}
   >
     <section>
@@ -81,7 +81,7 @@ const Footer = () => (
       />
       .
     </section>
-  </Base>
-);
+  </Box>
+)
 
-export default Footer;
+export default Footer

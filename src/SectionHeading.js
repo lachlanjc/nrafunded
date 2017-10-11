@@ -1,15 +1,23 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Base } from "rebass";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Text } from 'rebass'
 
 const SectionHeading = ({ name, ...props }) => (
-  <Base {...props} tagName="h2" theme="primary" className="section-heading">
+  <Text
+    {...props}
+    is="h2"
+    color="primary"
+    mt={0}
+    mb={1}
+    pb={1}
+    className="section-heading"
+  >
     <span className="section-heading__name">{name}</span>
-  </Base>
-);
+  </Text>
+)
 
 SectionHeading.propTypes = {
   name: PropTypes.string.isRequired
-};
+}
 
-export default SectionHeading;
+export default SectionHeading

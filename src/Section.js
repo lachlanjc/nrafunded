@@ -1,6 +1,6 @@
-import React from "react";
-import { Base } from "rebass";
+import React from 'react'
+import { Box } from 'rebass'
 
-const Section = props => <Base {...props} tagName="section" my={3} />;
+const Section = props => <Box {...props} is="section" mb={4} />
 
-export default Section;
+export default Section
