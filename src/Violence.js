@@ -7,7 +7,7 @@ import violence from '../data/violence'
 
 const Violence = () => (
   <Section>
-    <SectionHeading name="Gun violence (2015)" />
+    <SectionHeading name="Gun violence (2016)" />
     <article className="md-flex items-center flex-wrap stats-narrow">
       <Stat label="Incidents" value={violence.incidents} />
       <Stat label="Deaths" value={violence.deaths} />
