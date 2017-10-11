@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import commaNumber from "comma-number";
+import React from 'react'
+import PropTypes from 'prop-types'
+import commaNumber from 'comma-number'
 
-import Icon from "./Icon";
+import Icon from './Icon'
 
 const RepFunding = ({ funding, ...props }) => (
   <div className="flex items-center red">
@@ -11,13 +11,13 @@ const RepFunding = ({ funding, ...props }) => (
       <strong style={{ fontWeight: 600 }}>
         ${commaNumber(funding)}
       </strong>
-      {" in funding"}
+      {' in funding'}
     </span>
   </div>
-);
+)
 
 RepFunding.propTypes = {
   funding: PropTypes.number.isRequired
-};
+}
 
-export default RepFunding;
+export default RepFunding

@@ -1,13 +1,13 @@
-import React from "react";
-import commaNumber from "comma-number";
+import React from 'react'
+import commaNumber from 'comma-number'
 
-import Section from "./Section";
-import SectionHeading from "./SectionHeading";
-import Stat from "./Stat";
-import StatGraph from "./StatGraph";
+import Section from './Section'
+import SectionHeading from './SectionHeading'
+import Stat from './Stat'
+import StatGraph from './StatGraph'
 
-import stats from "../data/analysis";
-const { percentages, funding } = stats;
+import stats from '../data/analysis'
+const { percentages, funding } = stats
 
 const Statistics = () => (
   <Section>
@@ -72,6 +72,6 @@ const Statistics = () => (
       />
     </article>
   </Section>
-);
+)
 
-export default Statistics;
+export default Statistics

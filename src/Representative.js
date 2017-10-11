@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import RepBadge from "./RepBadge";
-import RepDates from "./RepDates";
-import RepFunding from "./RepFunding";
-import RepSocial from "./RepSocial";
+import RepBadge from './RepBadge'
+import RepDates from './RepDates'
+import RepFunding from './RepFunding'
+import RepSocial from './RepSocial'
 
 const Representative = ({ data, ...props }) => (
   <div
-    className={`card ${data.funding ? "bg-stain" : "bg-white"}`}
+    className={`card ${data.funding ? 'bg-stain' : 'bg-white'}`}
     id={`${data.state}-${data.person.lastname}`}
   >
     <h3 className="name">
@@ -27,10 +27,10 @@ const Representative = ({ data, ...props }) => (
       website={data.website}
     />
   </div>
-);
+)
 
 Representative.propTypes = {
   data: PropTypes.object.isRequired
-};
+}
 
-export default Representative;
+export default Representative

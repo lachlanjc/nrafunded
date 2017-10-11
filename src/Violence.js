@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import Section from "./Section";
-import SectionHeading from "./SectionHeading";
-import Stat from "./Stat";
-import violence from "../data/violence";
+import Section from './Section'
+import SectionHeading from './SectionHeading'
+import Stat from './Stat'
+import violence from '../data/violence'
 
 const Violence = () => (
   <Section>
@@ -17,6 +17,6 @@ const Violence = () => (
       <Stat label="Mass shootings (4+ people)" value={violence.masses} />
     </article>
   </Section>
-);
+)
 
-export default Violence;
+export default Violence

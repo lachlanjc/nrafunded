@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 const Icons = () => (
-  <svg style={{ display: "none" }}>
+  <svg style={{ display: 'none' }}>
     <symbol id="clock" fill="#758a99" viewBox="0 0 32 32">
       <path d="M16 0 A16 16 0 0 0 0 16 A16 16 0 0 0 16 32 A16 16 0 0 0 32 16 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 28 16 A12 12 0 0 1 16 28 A12 12 0 0 1 4 16 A12 12 0 0 1 16 4 M14 6 L14 17.25 L22 22 L24.25 18.5 L18 14.75 L18 6z " />
     </symbol>
@@ -27,6 +27,6 @@ const Icons = () => (
       <path d="M1 20 L16 6 L31 20 L27 24 L16 14 L5 24 z " />
     </symbol>
   </svg>
-);
+)
 
-export default Icons;
+export default Icons
