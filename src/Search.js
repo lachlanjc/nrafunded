@@ -62,10 +62,7 @@ class Search extends Component {
       key.match(
         /ocd-division\/country:us\/(?:state|district):(\w+)(?:\/cd:)(\d+)/
       )
-    const url = `https://www.googleapis.com/civicinfo/v2/representatives?${join(
-      query,
-      '&'
-    )}`
+    const url = `https://www.googleapis.com/civicinfo/v2/representatives?${join(query, '&')}`
     axios
       .get(url)
       .then(r => {
@@ -110,6 +107,7 @@ class Search extends Component {
               id="addressInput"
               placeholder="1 Infinite Loop, Cupertino, CA"
               onKeyDown={e => this.onKey(e.target.value, e.keyCode)}
+              px={2}
               w={1}
               style={{ height: 32 }}
             />
@@ -135,17 +133,15 @@ const SearchResults = ({ loading, rep, ...props }) => (
     enter={{ animation: 'slideDown', duration: 256 }}
     leave={{ animation: 'slideUp', duration: 256 }}
   >
-    {!isEmpty(rep) ? (
-      <Button
-        is="a"
-        href={`#${rep.state}-${rep.lastName}`}
-        title="Tap to jump to Congressperson"
-        bg="red"
-        children={`Jump to ${rep.name}`}
-      />
-    ) : (
-      loading && <Text color="midgray" children="Loading…" />
-    )}
+    {!isEmpty(rep)
+      ? <Button
+          is="a"
+          href={`#${rep.state}-${rep.lastName}`}
+          title="Tap to jump to Congressperson"
+          bg="red"
+          children={`Jump to ${rep.name}`}
+        />
+      : loading && <Text color="midgray" children="Loading…" />}
   </VelocityTransitionGroup>
 )
 
