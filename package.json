@@ -11,8 +11,8 @@
     "parse": "node parse/parse.js",
     "data": "npm run scrape && npm run parse",
     "render": "npm run render:analysis && npm run render:body",
-    "render:analysis": "static-react --no-doctype src/Analysis.js > public/analysis.html",
-    "render:body": "static-react --no-doctype src/Body.js > public/body.html",
+    "render:analysis": "static-react --no-doctype src/Analysis.js -o docs/analysis.html --id analysis",
+    "render:body": "static-react --no-doctype src/Body.js -o docs/body.html --i body",
     "flag": "repng src/Flag.js -w 512 -h 512 -o docs -f flag"
   },
   "devDependencies": {
@@ -31,6 +31,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-geomicons": "^2.1.0",
+    "react-static": "^1.2.1",
     "rebass": "^1.0.4",
     "scrape-it": "^3.3.3",
     "static-react": "^4.0.0-2",
