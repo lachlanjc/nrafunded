@@ -4,42 +4,48 @@
   "description": "Let's take Congress back from the NRA.",
   "private": true,
   "scripts": {
-    "build": "nwb build-react-app",
-    "clean": "nwb clean-app",
+    "build": "next build",
+    "dev": "next",
     "css": "postcss node_modules/basscss-margin/index.css -u postcss-custom-properties -o src/css/basscss-margin.css && postcss node_modules/basscss-padding/index.css -u postcss-custom-properties -o src/css/basscss-padding.css",
-    "deploy": "npm run build && touch dist/.nojekyll && gh-pages -d dist",
-    "start": "nwb serve-react-app --port 4000",
+    "start": "next start",
     "scrape": "node parse/scraper.js",
     "parse": "node parse/parse.js",
     "data": "npm run scrape && npm run parse",
     "render": "npm run render:analysis && npm run render:body",
-    "render:analysis": "static-react --no-doctype src/Analysis.js > public/analysis.html",
-    "render:body": "static-react --no-doctype src/Body.js > public/body.html"
+    "render:analysis": "static-react --no-doctype src/Analysis.js > static/analysis.html",
+    "render:body": "static-react --no-doctype src/Body.js > static/body.html"
+  },
+  "babel": {
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      "include"
+    ]
   },
   "dependencies": {
+    "axios": "^0.16.1",
+    "babel-plugin-include": "^1.2.0",
+    "comma-number": "^2.0.0",
+    "lodash": "latest",
+    "moment": "^2.18.1",
+    "next": "latest",
     "prop-types": "^15.5.8",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
-  },
-  "devDependencies": {
-    "axios": "^0.15.3",
-    "basscss-margin": "^1.0.7",
-    "basscss-padding": "^1.1.3",
-    "comma-number": "^1.1.0",
-    "gh-pages": "^0.12.0",
-    "html-loader": "^0.4.4",
-    "lodash": "^4.17.2",
-    "moment": "^2.17.0",
-    "nwb": "0.12.x",
-    "postcss-cli": "latest",
-    "postcss-custom-properties": "latest",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-geomicons": "^2.1.0",
-    "rebass": "^0.3.3",
+    "rebass": "^0.3.4",
     "reflexbox": "^2.2.3",
-    "scrape-it": "^3.2.2",
+    "scrape-it": "^3.3.2",
     "static-react": "^3.2.0",
     "unformat-usd": "^0.1.1",
-    "velocity-react": "^1.1.11"
+    "velocity-react": "^1.2.2"
+  },
+  "devDependencies": {
+    "basscss-margin": "^1.0.7",
+    "basscss-padding": "^1.1.3",
+    "postcss-cli": "latest",
+    "postcss-custom-properties": "latest"
   },
   "author": "Lachlan Campbell <lachlan.campbell@icloud.com>",
   "license": "MIT",

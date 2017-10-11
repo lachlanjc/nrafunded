@@ -1,81 +1,81 @@
-import React, { Component } from "react";
-import { trim, isEqual, isEmpty, map } from "lodash";
-import axios from "axios";
+import React, { Component } from 'react'
+import { trim, isEqual, isEmpty, map, replace } from 'lodash'
+import axios from 'axios'
 
-import { Text, Label, Button, Menu, NavItem } from "rebass";
-import { Flex } from "reflexbox";
-import { VelocityTransitionGroup } from "velocity-react";
+import { Text, Label, Button, Menu, NavItem } from 'rebass'
+import { Flex } from 'reflexbox'
+import { VelocityTransitionGroup } from 'velocity-react'
 
-import Section from "./Section";
-import SectionHeading from "./SectionHeading";
+import Section from './Section'
+import SectionHeading from './SectionHeading'
+
+const ax = axios.create({
+  baseURL: 'https://crossorigin.me/https://democracy.io/api/1'
+})
 
 class Search extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
-      address: "",
+      address: '',
       loading: false,
       results: [],
       lat: 0,
       lng: 0
-    };
-    this.onKey = this.onKey.bind(this);
-    this.onClick = this.onClick.bind(this);
-    this.fetchData = this.fetchData.bind(this);
-    this.getLegislators = this.getLegislators.bind(this);
+    }
+    this.onKey = this.onKey.bind(this)
+    this.onClick = this.onClick.bind(this)
+    this.fetchData = this.fetchData.bind(this)
+    this.getLegislators = this.getLegislators.bind(this)
   }
 
   onKey(value, keyCode, e) {
-    const val = trim(value);
+    const val = trim(value)
     if (!isEqual(val, this.state.address)) {
-      this.setState({ address: val });
+      this.setState({ address: val })
     }
     // When you press return
     if (isEqual(keyCode, 13)) {
-      this.onClick();
+      this.onClick()
     }
   }
 
   fetchData() {
-    this.setState({ loading: true, results: [] });
-    axios
-      .get(
-        `//maps.googleapis.com/maps/api/geocode/json?&address=${this.state.address}`
-      )
-      .then(r => {
-        if (!isEmpty(r.data.results[0])) {
-          const { lat, lng } = r.data.results[0].geometry.location;
-          this.setState({ lat, lng });
-          this.getLegislators();
-        }
-      });
+    this.setState({ loading: true, results: [] })
+    const address = replace(this.state.address, /\w+/, '+')
+    ax.get(`/location/verify?address=${address}`).then(response => {
+      if (!isEmpty(response.data)) {
+        const lat = response.data.data.latitude
+        const lng = response.data.data.longitude
+        this.setState({ lat, lng })
+        this.getLegislators()
+      }
+    })
   }
 
   getLegislators() {
-    const { lat, lng } = this.state;
-    axios
-      .get(`/legislators/findByLatLng?latitude=${lat}&longitude=${lng}`, {
-        baseURL: "https://crossorigin.me/https://democracy.io/api/1"
-      })
-      .then(r => {
+    const { lat, lng } = this.state
+    ax
+      .get(`/legislators/findByLatLng?latitude=${lat}&longitude=${lng}`)
+      .then(response => {
         this.setState({
           loading: false,
-          results: r.data.data
-        });
+          results: response.data.data
+        })
       })
-      .catch(r => {
-        console.log("error reaching sunlightfoundation");
-      });
+      .catch(response => {
+        console.log('error reaching sunlightfoundation')
+      })
   }
 
   onClick(e) {
     if (!isEmpty(this.state.address)) {
-      this.fetchData();
+      this.fetchData()
     }
   }
 
   render() {
-    const { loading, results } = this.state;
+    const { loading, results } = this.state
     return (
       <Section>
         <SectionHeading name="Find your legislators…" />
@@ -96,7 +96,7 @@ class Search extends Component {
           </div>
           <div className="pt2">
             <Button
-              backgroundColor="green"
+              bg={colors.green}
               color="white"
               inverted
               rounded
@@ -108,15 +108,15 @@ class Search extends Component {
         {(loading || results) &&
           <SearchResults loading={loading} results={results} />}
       </Section>
-    );
+    )
   }
 }
 
 const SearchResults = ({ loading, results, ...props }) => (
   <VelocityTransitionGroup
     component="section"
-    enter={{ animation: "slideDown", duration: 256 }}
-    leave={{ animation: "slideUp", duration: 256 }}
+    enter={{ animation: 'slideDown', duration: 256 }}
+    leave={{ animation: 'slideUp', duration: 256 }}
   >
     {isEqual(loading, true) && <Text color="midgray" children="Loading…" />}
     {!isEmpty(results) && [
@@ -126,7 +126,7 @@ const SearchResults = ({ loading, results, ...props }) => (
         children="Jump to a legislator"
         key="label"
       />,
-      <Menu is="article" key="menu" style={{ maxWidth: "16rem" }} rounded>
+      <Menu is="article" key="menu" style={{ maxWidth: '16rem' }} rounded>
         {map(results, r => (
           <SearchResult
             key={r.bioguideId}
@@ -139,7 +139,7 @@ const SearchResults = ({ loading, results, ...props }) => (
       </Menu>
     ]}
   </VelocityTransitionGroup>
-);
+)
 
 const SearchResult = ({ title, firstname, lastname, state }) => (
   <NavItem
@@ -148,6 +148,6 @@ const SearchResult = ({ title, firstname, lastname, state }) => (
     style={{ fontWeight: 400 }}
     children={`${title} ${firstname} ${lastname}`}
   />
-);
+)
 
-export default Search;
+export default Search
