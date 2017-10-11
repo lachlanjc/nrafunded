@@ -79,7 +79,7 @@ _.map(pages, url => {
 })
 
 // GUN VIOLENCE
-scrapeIt('http://www.gunviolencearchive.org/tolls/2015', {
+scrapeIt('http://www.gunviolencearchive.org/tolls/2016', {
   incidents: '.toll li:first-child  span:last-child',
   deaths: '.toll li:nth-child(2) span:last-child',
   injuries: '.toll li:nth-child(3) span:last-child',

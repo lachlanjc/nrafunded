@@ -9,7 +9,7 @@ const states = require('../data/states.json')
 const Nav = () => (
   <Section>
     <SectionHeading name="or jump to your state…" />
-    <Flex wrap mx={-2}>
+    <Flex wrap mx={-2} style={{ lineHeight: '1.25' }}>
       {map(states, s => (
         <Box key={s.id}>
           <NavLink href={`#${s.abbrev}`} title={s.name} children={s.name} />

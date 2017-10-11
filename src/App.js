@@ -15,7 +15,7 @@ const App = () => (
   <Provider theme={theme}>
     <style dangerouslySetInnerHTML={{ __html: css }} />
     <Header />
-    <Container is="article" width={48 * 16} px={2} py={4}>
+    <Container is="article" maxWidth={48 * 16} py={4}>
       <Search />
       <Nav />
       <div dangerouslySetInnerHTML={{ __html: analysis }} />

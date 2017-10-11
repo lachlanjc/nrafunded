@@ -14,6 +14,7 @@ progress {
   .people .card {
     width: 50%;
     max-width: 360px;
+    padding: 24px;
   }
   .meta-container {
     flex-direction: column;
@@ -141,9 +142,9 @@ progress {
   border-radius: 4px;
   box-shadow: 0 2px 12px 2px rgba(0,0,0,0.1);
   transition: box-shadow .2s ease-out;
-  margin-bottom: 8px;
   margin-top: 8px;
-  padding: 24px;
+  margin-bottom: 12px;
+  padding: 16px;
 }
 .card.bg-stain {
   box-shadow: 0 2px 12px 2px rgba(179,0,0,.2);

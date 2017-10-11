@@ -11,7 +11,7 @@ const Header = () => (
     color="white"
     style={{ minHeight: 256, textAlign: 'center' }}
   >
-    <Container width={48 * 16} py={4}>
+    <Container maxWidth={48 * 16} px={[0, 3]} py={4}>
       <Heading f={6}>NRA Funded</Heading>
       <Text f={4} my={2}>
         The NRA is paying off Congress at the expense of lives.
@@ -24,9 +24,9 @@ const Header = () => (
       </Flex>
       <footer style={{ opacity: '.8', fontWeight: 500 }}>
         <Text f={1}>
-          Funding data from the Center for Responsive Politics, 2016
+          Funding from OpenSecrets.org, 2016
         </Text>
-        <Text f={1}>Gun violence data from the Gun Violence Archive, 2015</Text>
+        <Text f={1}>Gun violence data from Gun Violence Archive, 2016</Text>
       </footer>
     </Container>
   </Banner>
