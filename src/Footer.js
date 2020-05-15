@@ -25,7 +25,7 @@ const Footer = () => (
   >
     <section>
       Created by
-      <FooterLink href="https://lachlanjc.glitch.me/" children="@lachlanjc" />
+      <FooterLink href="https://lachlanjc.com/" children="@lachlanjc" />
       in 2017 –
       <FooterLink
         href="https://github.com/lachlanjc/nrafunded/"
