@@ -32,7 +32,7 @@
     "react-dom": "^16.0.0",
     "react-geomicons": "^2.1.0",
     "react-static": "^1.2.1",
-    "rebass": "^1.0.4",
+    "rebass": "^4.0.7",
     "scrape-it": "^3.3.3",
     "static-react": "^4.0.0-2",
     "style-loader": "^0.19.0",
